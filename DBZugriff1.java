@@ -1,16 +1,3 @@
-package giu14;
-
-
-
-/*
- * Programm DBZugriff1
- * Das Programm kann als Schablone für den Datenbankzugriff verwendet werden.
- * Das Programm fragt Buchdaten (Id und Titel) aus der mysql-Datenbank xxx ab.
- * Die Daten werden zeilenweise in der Console ausgegeben.
- *  
- * @author Hans-Peter Habelitz
- * @date 2011-12-28
- */
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -40,7 +27,7 @@ public class DBZugriff1 {
 	    Statement stmt = conn.createStatement();
 	    // Datenabfrage aufbereiten
 	    String query = "SELECT ID, Titel FROM Buecher";
-	    // Schritt 3: Datenabfrage ausführen
+	    // Schritt 3: Datenabfrage ausfÃ¼hren
 	    ResultSet rs = stmt.executeQuery(query);
 	    // Schritt 4: Ergebnismenge verarbeiten
 	    System.out.println("ID\t\tTitel");
@@ -50,18 +37,18 @@ public class DBZugriff1 {
 		System.out.println(rs.getString("ID") + "\t"
 			+ rs.getString("Titel"));
 	    }
-	    // ResultSet und Statement schließen
+	    // ResultSet und Statement schlieÃŸen
 	    rs.close();
 	    stmt.close();
 	} catch (SQLException e) {
-	    System.err.println("Keine Verbindung möglich.");
+	    System.err.println("Keine Verbindung mÃ¶glich.");
 	    e.printStackTrace();
 	    System.err.println("SQLExecption: " + e.getMessage());
 	    System.err.println("SQLState: " + e.getSQLState());
 	    System.err.println("VendorError: " + e.getErrorCode());
 	    System.exit(-1);
 	} finally {
-	    // Verbindung schließen
+	    // Verbindung schlieÃŸen
 	    if (conn != null) {
 		try {
 		    conn.close();
